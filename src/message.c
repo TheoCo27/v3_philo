@@ -6,7 +6,7 @@
 /*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 02:13:01 by theog             #+#    #+#             */
-/*   Updated: 2024/12/05 02:57:23 by theog            ###   ########.fr       */
+/*   Updated: 2024/12/05 19:02:46 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	message(t_philo *philo, char *msg)
 {
 	pthread_mutex_lock(philo->speaker);
 	pthread_mutex_lock(philo->status_m);
-	if (*philo->status == RUN && ft_strncmp(msg, "died", 4) == false)
+	if (*philo->status == STOP && ft_strncmp(msg, "died", 4) == false)
 	{
 		pthread_mutex_unlock(philo->speaker);
 		pthread_mutex_unlock(philo->status_m);

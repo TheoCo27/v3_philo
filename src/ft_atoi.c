@@ -6,7 +6,7 @@
 /*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 02:12:10 by theog             #+#    #+#             */
-/*   Updated: 2024/12/05 02:58:52 by theog            ###   ########.fr       */
+/*   Updated: 2024/12/05 18:46:46 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_isnbr(char *str)
 	return (1);
 }
 
-long	ft_atol(const char *str)
+int	ft_atoi(char *str)
 {
 	long	result;
 	long	sign;
@@ -44,6 +44,8 @@ long	ft_atol(const char *str)
 	i = 0;
 	sign = 1;
 	result = 0;
+	if (ft_isnbr(str) == 0)
+		return (-1);
 	while (((str[i] >= 9) && (str[i] <= 13)) || (str[i] == 32))
 		i++;
 	if ((str[i] == '+') || (str[i] == '-'))
@@ -57,9 +59,7 @@ long	ft_atol(const char *str)
 		result = result * 10 + str[i] - '0';
 		i++;
 	}
-	if (result * sign > __INT_MAX__)
-		return (-1);
-	if (result * sign < -2147483648)
+	if (result * sign > __INT_MAX__ || result * sign < -2147483648)
 		return (-1);
 	return (result * sign);
 }

@@ -6,7 +6,7 @@
 /*   By: theog <theog@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 02:16:01 by theog             #+#    #+#             */
-/*   Updated: 2024/12/05 03:01:11 by theog            ###   ########.fr       */
+/*   Updated: 2024/12/05 18:14:54 by theog            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	usleep_eating(t_philo *philo)
 	pthread_mutex_unlock(&philo->lastmeal_time_m);
 }
 
-void	custom_sleep_sleeping(t_philo *philo, long int time)
+void	usleep_sleeping(t_philo *philo, long int time)
 {
 	while (get_time() - time < philo->time2sleep)
 	{
